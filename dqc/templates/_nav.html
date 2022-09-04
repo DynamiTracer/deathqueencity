@@ -1,0 +1,220 @@
+    <header class="navigation">
+        <div class="container mb-3">
+        <!-- Fixed navbar -->
+		<nav class="navbar navbar-expand-md navbar-dark fixed-top">
+			<a class="navbar-brand" href="/index">デスクイーン市 -Death Queen City-</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+			<ul class="navbar-nav ml-auto">
+                {% if FileName == "Home" %}
+                <li class="nav-item active">
+                    <a class="nav-link" href="/index">Home</a>
+                </li>                
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/index">Home</a>
+                </li>                
+                {% endif %}
+                {% if FileName == "Soft" %}
+                <li class="nav-item dropdown_multilayer active">
+                    <a class="nav-link dropdown_multilayer_menu" href="#">Soft</a>
+                	<ul class="nav flex-column dropdown_multilayer_menu_sub">
+                            {% for soft in soft_list %}
+                            
+                                {% ifchanged soft.Soft_Group %}
+                                    {% if forloop.first  %}                                
+                		<li class="nav-item dropdown_multilayer_menu_third">
+                                    {% else %}
+                		    </ul>
+        				</li>
+                		<li class="nav-item dropdown_multilayer_menu_third">
+                                    {% endif %}
+                			<a class="nav-link" href="#">{{ soft.Soft_Group }}</a>
+                			<ul class="nav flex-column dropdown_multilayer_menu_third_sub">
+                				<li class="nav-item">
+                				<a class="nav-link" href='/soft/{{ soft.Soft_ID }}'>{{ soft.Soft_Name }}</a>
+                    		    </li>
+
+                                {% else %}
+                				<li class="nav-item">
+                				<a class="nav-link" href='/soft/{{ soft.Soft_ID }}'>{{ soft.Soft_Name }}</a>
+                				</li>
+                                {% endifchanged %}                		    
+                            {% empty %}
+                            {% endfor %}
+                		    </ul>
+                	    </li>
+                    </ul>
+                </li>
+
+                {% else %}                
+                <li class="nav-item dropdown_multilayer">
+                    <a class="nav-link dropdown_multilayer_menu" href="#">Soft</a>
+                	<ul class="nav flex-column dropdown_multilayer_menu_sub">
+                            {% for soft in soft_list %}
+                            
+                                {% ifchanged soft.Soft_Group %}
+                                    {% if forloop.first  %}                                
+                		<li class="nav-item dropdown_multilayer_menu_third">
+                                    {% else %}
+                		    </ul>
+        				</li>
+                		<li class="nav-item dropdown_multilayer_menu_third">
+                                    {% endif %}
+                			<a class="nav-link" href="#">{{ soft.Soft_Group }}</a>
+                			<ul class="nav flex-column dropdown_multilayer_menu_third_sub">
+                				<li class="nav-item">
+                				<a class="nav-link" href='/soft/{{ soft.Soft_ID }}'>{{ soft.Soft_Name }}</a>
+                    		    </li>
+
+                                {% else %}
+                				<li class="nav-item">
+                				<a class="nav-link" href='/soft/{{ soft.Soft_ID }}'>{{ soft.Soft_Name }}</a>
+                				</li>
+                                {% endifchanged %}                		    
+                            {% empty %}
+                            {% endfor %}
+                		    </ul>
+                	    </li>
+                    </ul>
+                </li>
+                {% endif %}
+
+                {% if FileName == "Category" %}
+                <li class="nav-item dropdown_multilayer active">
+                    <a class="nav-link dropdown_multilayer_menu" href="#">Category</a>
+                	<ul class="nav flex-column dropdown_multilayer_menu_sub">
+                            {% for category in category_list %}
+                            
+                                {% ifchanged category.Category_Group %}
+                                    {% if forloop.first  %}                                
+                		<li class="nav-item dropdown_multilayer_menu_third">
+                                    {% else %}
+                		    </ul>
+        				</li>
+                		<li class="nav-item dropdown_multilayer_menu_third">
+                                    {% endif %}
+                			<a class="nav-link" href="#">{{ category.Category_Group }}</a>
+                			<ul class="nav flex-column dropdown_multilayer_menu_third_sub">
+                				<li class="nav-item">
+                				<a class="nav-link" href='/category/{{ category.Category_ID }}'>{{ category.Category_Name }}</a>
+                    		    </li>
+
+                                {% else %}
+                				<li class="nav-item">
+                				<a class="nav-link" href='/category/{{ category.Category_ID }}'>{{ category.Category_Name }}</a>
+                				</li>
+
+                                {% endifchanged %}                		    
+                            {% empty %}
+                				<a class="nav-link" href="#"></a>
+                            {% endfor %}
+                		    </ul>
+                	    </li>
+                    </ul>
+                </li>
+
+                {% else %}                
+                <li class="nav-item dropdown_multilayer">
+                    <a class="nav-link dropdown_multilayer_menu" href="#">Category</a>
+                	<ul class="nav flex-column dropdown_multilayer_menu_sub">
+                            {% for category in category_list %}
+                            
+                                {% ifchanged category.Category_Group %}
+                                    {% if forloop.first  %}                                
+                		<li class="nav-item dropdown_multilayer_menu_third">
+                                    {% else %}
+                		    </ul>
+        				</li>
+                		<li class="nav-item dropdown_multilayer_menu_third">
+                                    {% endif %}
+                			<a class="nav-link" href="#">{{ category.Category_Group }}</a>
+                			<ul class="nav flex-column dropdown_multilayer_menu_third_sub">
+                				<li class="nav-item">
+                				<a class="nav-link" href='/category/{{ category.Category_ID }}'>{{ category.Category_Name }}</a>
+                    		    </li>
+
+                                {% else %}
+                				<li class="nav-item">
+                				<a class="nav-link" href='/category/{{ category.Category_ID }}'>{{ category.Category_Name }}</a>
+                				</li>
+
+                                {% endifchanged %}                		    
+                            {% empty %}
+                				<a class="nav-link" href="#"></a>
+                            {% endfor %}
+                		    </ul>
+                	    </li>
+                    </ul>
+                </li>
+                {% endif %}
+
+                {% if FileName == "Special1" %}
+                <li class="nav-item dropdown_multilayer active">
+                    <a class="nav-link dropdown_multilayer_menu" href="#">Special</a>
+                	<ul class="nav flex-column dropdown_multilayer_menu_sub">
+                		<li class="nav-item dropdown_multilayer_menu_third2">
+                			<a class="nav-link" href="/special/1">-つるぎざき伝説-</a>
+                	    </li>
+                		<li class="nav-item dropdown_multilayer_menu_third2">
+                			<a class="nav-link" href="/special/2">-つるぎざき伝説 完結編-</a>
+                	    </li>
+                    </ul>
+                </li>
+                {% elif  FileName == "Special2" %}
+                <li class="nav-item dropdown_multilayer active">
+                    <a class="nav-link dropdown_multilayer_menu" href="#">Special</a>
+                	<ul class="nav flex-column dropdown_multilayer_menu_sub">
+                		<li class="nav-item dropdown_multilayer_menu_third2">
+                			<a class="nav-link" href="/special/1">-つるぎざき伝説-</a>
+                	    </li>
+                		<li class="nav-item dropdown_multilayer_menu_third2">
+                			<a class="nav-link" href="/special/2">-つるぎざき伝説 完結編-</a>
+                	    </li>
+                    </ul>
+                </li>
+                {% else %}
+                <li class="nav-item dropdown_multilayer">
+                    <a class="nav-link dropdown_multilayer_menu" href="#">Special</a>
+                	<ul class="nav flex-column dropdown_multilayer_menu_sub">
+                		<li class="nav-item dropdown_multilayer_menu_third2">
+                			<a class="nav-link" href="/special/1">-つるぎざき伝説-</a>
+                	    </li>
+                		<li class="nav-item dropdown_multilayer_menu_third2">
+                			<a class="nav-link" href="/special/2">-つるぎざき伝説 完結編-</a>
+                	    </li>
+                    </ul>
+                </li>
+                {% endif %}
+                {% if FileName == "History" %}
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">History</a>
+                </li>                
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/history">History</a>
+                </li>                
+                {% endif %}
+                {% if FileName == "Wanted" %}
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Wanted</a>
+                </li>                
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/wanted">Wanted</a>
+                </li>                
+                {% endif %}
+                <li class="nav-item">
+                    <a class="nav-link" href="mailto:info@dqw.main.jp">Mail</a>
+                </li>
+                    <a class="navbar-Twitter" href="https://twitter.com/DynamiTracer?ref_src=twsrc%5Etfw"></a>
+                    <a class="navbar-Line" href="https://twitter.com/DynamiTracer?ref_src=twsrc%5Etfw"></a>
+                    <a class="navbar-Facebook" href="https://twitter.com/DynamiTracer?ref_src=twsrc%5Etfw"></a>
+                    <a class="navbar-Instagram" href="https://twitter.com/DynamiTracer?ref_src=twsrc%5Etfw"></a>                    
+            </ul>
+            </div>
+        </nav>
+        </div>
+    </header>

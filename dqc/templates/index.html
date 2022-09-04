@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>DEATH QUEEN CITY</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/_nav.css' %}">
+<!--    <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}"> -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/coming-soon.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">    
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/jquery.vide.min.js' %}"></script>
+    <script src="{% static 'js/coming-soon.min.js' %}"></script>
+    
+<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
+    <link href="sticky-footer-navbar.css" rel="stylesheet">
+    <style type="text/css">
+    <!--  
+        main { 
+            padding-top: 5px; 
+            padding-bottom: 30px; 
+        }
+        .navbar-Twitter {
+            background: url({% static '/ICON/Twitter.png' %}) no-repeat bottom center;
+            background-size: contain;
+            height: 36px;
+            width:  43px;
+        }
+        .navbar-Line {
+            background: url({% static '/ICON/Line.png' %}) no-repeat bottom center;
+            background-size: contain;
+            height: 36px;
+            width:  43px;
+        }                    
+        .navbar-Facebook {
+            background: url({% static '/ICON/Facebook.png' %}) no-repeat bottom center;
+            background-size: contain;
+            height: 36px;
+            width:  43px;
+        }                    
+        .navbar-Instagram {
+            background: url({% static '/ICON/Instagram.png' %}) no-repeat bottom center;
+            background-size: contain;
+            height: 36px;
+            width:  43px;
+        }     
+        html {
+         overflow-y: scroll;
+        }        
+    -->
+    </style>      
+</head>
+
+<html lang="ja"  class="h-100" >
+  <body  class="d-flex flex-column h-100" >
+    <a id="skippy" class="sr-only sr-only-focusable" href="#content">
+      <div class="container">
+        <span class="skiplink-text">Death Queen City</span>
+      </div>
+    </a>
+    {% include "_nav.html" %} 
+
+<!--    <main role="main" class="flex-shrink-0"> -->
+    <div class="overlay"></div>
+
+    <div class="masthead">
+      <div class="masthead-bg"></div>
+      <div class="container h-100">
+        <div class="row h-100">
+          <div class="col-12 my-auto">
+            <div class="masthead-content text-white py-5 py-md-0 mt-4">
+            <h2 class="mb-3">Welcome To <br>Death Queen City !!</h2>
+                <p><font size="2">このサイトは、私が33年間収集したスーパーファミコンまでの<br>スクウェアソフトグッズを展示しています。</font></p>
+                <p><font size="2">スクエニ関連グッズは取り扱っていません。<br>(テレカのみPS2まで蒐集)</font></p>
+                <p><font size="2">ファミコン＆スーパーファミコン時代のスクウェアグッズを<br>いつまでも愛し続けて止まない人たちに<br>展示品を見ていただけたら幸いです。</font></p>
+                <p><font size="2">市長queenのTwitterでは<br>最近手に入れたスクウェアグッズ画像をUPしてます。<BR>アカウント→　@DynamiTracer 市長queen【デスクイーン市】</font></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<!--    </main> -->
+    {% include "_footer.html" %}    
+  </body>
+</html>
