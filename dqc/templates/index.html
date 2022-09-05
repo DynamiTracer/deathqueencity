@@ -8,15 +8,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>DEATH QUEEN CITY</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/_nav.css' %}">
-<!--    <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}"> -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/coming-soon.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">    
-    <script src="{% static 'js/jquery.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static 'js/jquery.vide.min.js' %}"></script>
-    <script src="{% static 'js/coming-soon.min.js' %}"></script>
-    
-<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
+
     <link href="sticky-footer-navbar.css" rel="stylesheet">
     <style type="text/css">
     <!--  
@@ -53,6 +47,7 @@
         }        
     -->
     </style>      
+
 </head>
 
 <html lang="ja"  class="h-100" >
@@ -85,5 +80,16 @@
     </div>
 <!--    </main> -->
     {% include "_footer.html" %}    
+
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/jquery.vide.min.js' %}"></script>
+
+    <script>
+        !function(p){"use strict";jQuery("body").vide({jpg:"{% static '/ICON/Title01.jpg' %}",poster:"{% static '/ICON/Title01.jpg' %}"},{posterType:"jpg"})}();
+<!--    !function(p){"use strict";jQuery("body").vide({mp4:"{% static '/ICON/bg.mp4' %}",poster:"{% static '/ICON/bg-mobile-fallback.jpg' %}"},{posterType:"jpg"})}();　-->
+
+    </script>
+
   </body>
 </html>
