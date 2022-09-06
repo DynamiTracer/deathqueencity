@@ -1,0 +1,46 @@
+
+    .navbar {
+        position: relative;
+        z-index: 9999;
+        background:#a61420;
+        color: #ffffff;
+    }
+
+    .dropdown_multilayer_menu_sub {
+        position: absolute;
+        width: 180px;
+        background:#a61420; 
+        font-size: 13px;
+        visibility: hidden;
+     }		   
+    
+    .dropdown_multilayer_menu_third_sub {
+        position: absolute;
+        top: 0;
+        left: 180px;
+        width: 320px;
+        background:#a61420; 
+        font-size: 13px;
+        visibility: hidden;
+    }	   
+    
+    .dropdown_multilayer_menu_third::after {
+	     content: "▶";
+	     font-family: fontawesome;
+	     position: absolute;
+	     top: 8px;
+	     right: 5px;
+    }                  
+    
+    .dropdown_multilayer_menu_third {
+        position: relative;
+    }
+           
+    .dropdown_multilayer_menu_third:hover .dropdown_multilayer_menu_third_sub {
+        visibility: visible;
+    }
+                   
+    
+    .dropdown_multilayer:hover .dropdown_multilayer_menu_sub {
+        visibility: visible; 
+    }
