@@ -1,7 +1,7 @@
 django
-whitenoise
 gunicorn
+whitenoise
 dj-database-url
 python-dotenv
-psycopy2-binary
+psycopg2-binary
 mysqlclient
