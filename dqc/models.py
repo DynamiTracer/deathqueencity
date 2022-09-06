@@ -44,7 +44,7 @@ class Soft(models.Model):
         return self.Soft_Name
 
 class Item(models.Model):
-    Category_key = models.CharField(max_length=4)
+    Category_key = models.CharField(max_length=100)
     Item_Classification = models.CharField(max_length=250)
     Sort_No = models.CharField(max_length=250)
     Preface = models.CharField(max_length=250)
