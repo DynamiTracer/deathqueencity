@@ -545,7 +545,7 @@ class CategoryView(ListView):
 
         sql +=  ') as D '
         sql +=  'WHERE D.Category_ID=%(CategoryID)s '
-        sql +=  'ORDER BY D.Category_ID, D.Sort_No '
+        sql +=  'ORDER BY D.Soft_ID, D.Category_ID, D.Sort_No  '
 
         sql2 =  'SELECT * FROM dqc_image as A '
         sql2 +=  'INNER JOIN dqc_soft as B '
