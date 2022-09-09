@@ -86,10 +86,17 @@
                             						<div class="image-wrap">
                                                     {% with picpath=item.ItemC|add:"/"|add:item.Picpath %}
                                                         <a href="{% static picpath %}" data-lightbox="group">
-            	                                    {% endwith %}  
-                                                    {% with picpath=item.ItemC|add:"/"|add:item.Picpath %}
+            	                                    {% endwith %}
+                                                    {% if item.Thumb %}
+                                                        {% with Thumb=item.ItemC|add:"/"|add:item.Thumb %}
+                                                        <img src="{% static Thumb %}" title="{{ item.Preface }}{{ item.Comment }}" width="200"></a>
+            	                                        {% endwith %}
+                                                    {% else %}                	                                        
+                                                        {% with picpath=item.ItemC|add:"/"|add:item.Picpath %}
                                                         <img src="{% static picpath %}" title="{{ item.Preface }}{{ item.Comment }}" width="200"></a>
-            	                                    {% endwith %}  
+            	                                        {% endwith %}
+                                                    {% endif %}
+
 	                                                </div>
                                                 </div>
 
@@ -104,10 +111,16 @@
                             						<div class="image-wrap">
                                                     {% with picpath=item.ItemC|add:"/"|add:item.Picpath %}
                                                         <a href="{% static picpath %}" data-lightbox="group">
-            	                                    {% endwith %}  
-                                                    {% with picpath=item.ItemC|add:"/"|add:item.Picpath %}
+            	                                    {% endwith %}
+                                                    {% if item.Thumb %}
+                                                        {% with Thumb=item.ItemC|add:"/"|add:item.Thumb %}
+                                                        <img src="{% static Thumb %}" title="{{ item.Preface }}{{ item.Comment }}" width="200"></a>
+            	                                        {% endwith %}
+                                                    {% else %}                	                                        
+                                                        {% with picpath=item.ItemC|add:"/"|add:item.Picpath %}
                                                         <img src="{% static picpath %}" title="{{ item.Preface }}{{ item.Comment }}" width="200"></a>
-            	                                    {% endwith %}  
+            	                                        {% endwith %}
+                                                    {% endif %}
 	                                                </div>
                                                 </div>
                                                 {% endwith %}
@@ -160,12 +173,18 @@
                                                 {% with picpath=item.ItemC|add:"/"|add:item.Picpath %}
                     						    <div class="flex-item">
                             						<div class="image-wrap">
-                                                    {% with picpath=item.ItemC|add:"/"|add:item.Picpath %}
-                                                        <a href="{% static picpath %}" data-lightbox="group">
-            	                                    {% endwith %} 
-                                                    {% with picpath=item.ItemC|add:"/"|add:item.Picpath %}
-                                                        <img src="{% static picpath %}" title="{{ item.Preface }}{{ item.Comment }}" width="200"></a>
-            	                                    {% endwith %}  
+	                                                    {% with picpath=item.ItemC|add:"/"|add:item.Picpath %}
+                                                            <a href="{% static picpath %}" data-lightbox="group">
+                	                                    {% endwith %}
+                                                        {% if item.Thumb %}
+	                                                        {% with Thumb=item.ItemC|add:"/"|add:item.Thumb %}
+                                                            <img src="{% static Thumb %}" title="{{ item.Preface }}{{ item.Comment }}" width="200"></a>
+                	                                        {% endwith %}
+                                                        {% else %}                	                                        
+	                                                        {% with picpath=item.ItemC|add:"/"|add:item.Picpath %}
+                                                            <img src="{% static picpath %}" title="{{ item.Preface }}{{ item.Comment }}" width="200"></a>
+                	                                        {% endwith %}
+                                                        {% endif %}
 	                                                </div>
                                                 </div>
                                                 {% endwith %}
@@ -175,12 +194,18 @@
                                             <div class="carousel-item">
                     						    <div class="flex-item">
                             						<div class="image-wrap">
-                                                    {% with picpath=item.ItemC|add:"/"|add:item.Picpath %}
-                                                        <a href="{% static picpath %}" data-lightbox="group">
-            	                                    {% endwith %}  
-                                                    {% with picpath=item.ItemC|add:"/"|add:item.Picpath %}
-                                                        <img src="{% static picpath %}" title="{{ item.Preface }}{{ item.Comment }}" width="200"></a>
-            	                                    {% endwith %}  
+	                                                    {% with picpath=item.ItemC|add:"/"|add:item.Picpath %}
+                                                            <a href="{% static picpath %}" data-lightbox="group">
+                	                                    {% endwith %}
+                                                        {% if item.Thumb %}
+	                                                        {% with Thumb=item.ItemC|add:"/"|add:item.Thumb %}
+                                                            <img src="{% static Thumb %}" title="{{ item.Preface }}{{ item.Comment }}" width="200"></a>
+                	                                        {% endwith %}
+                                                        {% else %}                	                                        
+	                                                        {% with picpath=item.ItemC|add:"/"|add:item.Picpath %}
+                                                            <img src="{% static picpath %}" title="{{ item.Preface }}{{ item.Comment }}" width="200"></a>
+                	                                        {% endwith %}
+                                                        {% endif %}
 	                                                </div>
                                                 </div>
                                             </div>
@@ -235,12 +260,18 @@
                                             <div class="carousel-item active">
                     						    <div class="flex-item">
                             						<div class="image-wrap">
-                                                    {% with picpath=item.ItemC|add:"/"|add:item.Picpath %}
-                                                        <a href="{% static picpath %}" data-lightbox="group">
-            	                                    {% endwith %}
-                                                    {% with picpath=item.ItemC|add:"/"|add:item.Picpath %}
-                                                        <img src="{% static picpath %}" title="{{ item.Preface }}{{ item.Comment }}" width="200"></a>
-            	                                    {% endwith %}  
+	                                                    {% with picpath=item.ItemC|add:"/"|add:item.Picpath %}
+                                                            <a href="{% static picpath %}" data-lightbox="group">
+                	                                    {% endwith %}
+                                                        {% if item.Thumb %}
+	                                                        {% with Thumb=item.ItemC|add:"/"|add:item.Thumb %}
+                                                            <img src="{% static Thumb %}" title="{{ item.Preface }}{{ item.Comment }}" width="200"></a>
+                	                                        {% endwith %}
+                                                        {% else %}                	                                        
+	                                                        {% with picpath=item.ItemC|add:"/"|add:item.Picpath %}
+                                                            <img src="{% static picpath %}" title="{{ item.Preface }}{{ item.Comment }}" width="200"></a>
+                	                                        {% endwith %}
+                                                        {% endif %}
 	                                                </div>
                                                 </div>
                                             </div>
@@ -250,12 +281,18 @@
                                             <div class="carousel-item">
                     						    <div class="flex-item">
                             						<div class="image-wrap">
-                                                    {% with picpath=item.ItemC|add:"/"|add:item.Picpath %}
-                                                        <a href="{% static picpath %}" data-lightbox="group">
-            	                                    {% endwith %}  
-                                                    {% with picpath=item.ItemC|add:"/"|add:item.Picpath %}
-                                                        <img src="{% static picpath %}" title="{{ item.Preface }}{{ item.Comment }}" width="200"></a>
-            	                                    {% endwith %}  
+	                                                    {% with picpath=item.ItemC|add:"/"|add:item.Picpath %}
+                                                            <a href="{% static picpath %}" data-lightbox="group">
+                	                                    {% endwith %}
+                                                        {% if item.Thumb %}
+	                                                        {% with Thumb=item.ItemC|add:"/"|add:item.Thumb %}
+                                                            <img src="{% static Thumb %}" title="{{ item.Preface }}{{ item.Comment }}" width="200"></a>
+                	                                        {% endwith %}
+                                                        {% else %}                	                                        
+	                                                        {% with picpath=item.ItemC|add:"/"|add:item.Picpath %}
+                                                            <img src="{% static picpath %}" title="{{ item.Preface }}{{ item.Comment }}" width="200"></a>
+                	                                        {% endwith %}
+                                                        {% endif %}
 	                                                </div>
                                                 </div>
                                             </div>
