@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView, ListView
 from .models import Soft, History, Wanted, Category, Item, Image
+import random
 
 class IndexView(ListView):
     template_name = 'index.html'
@@ -13,6 +14,7 @@ class IndexView(ListView):
             'category_list': Category.objects.all().order_by('id'),
         })
         context['FileName'] = 'Home'
+        context['GoodsPic'] = random.randrange(9)
         return context
 
     def get_queryset(self):

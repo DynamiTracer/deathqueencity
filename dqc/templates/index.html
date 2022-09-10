@@ -84,12 +84,47 @@
     <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
     <script src="{% static 'js/jquery.vide.min.js' %}"></script>
-
+    {% if GoodsPic == 1 %}
+    <script>
+        !function(p){"use strict";jQuery("body").vide({jpg:"{% static '/ICON/Title01.jpg' %}",poster:"{% static '/ICON/Title01.jpg' %}"},{posterType:"jpg"})}();
+    </script>
+    {% elif GoodsPic == 2 %}
+    <script>
+        !function(p){"use strict";jQuery("body").vide({jpg:"{% static '/ICON/Title02.jpg' %}",poster:"{% static '/ICON/Title02.jpg' %}"},{posterType:"jpg"})}();
+    </script>
+    {% elif GoodsPic == 3 %}
+    <script>
+        !function(p){"use strict";jQuery("body").vide({jpg:"{% static '/ICON/Title03.jpg' %}",poster:"{% static '/ICON/Title03.jpg' %}"},{posterType:"jpg"})}();
+    </script>
+    {% elif GoodsPic == 4 %}
+    <script>
+        !function(p){"use strict";jQuery("body").vide({jpg:"{% static '/ICON/Title04.jpg' %}",poster:"{% static '/ICON/Title04.jpg' %}"},{posterType:"jpg"})}();
+    </script>    
+    {% elif GoodsPic == 5 %}
     <script>
         !function(p){"use strict";jQuery("body").vide({jpg:"{% static '/ICON/Title05.jpg' %}",poster:"{% static '/ICON/Title05.jpg' %}"},{posterType:"jpg"})}();
-<!--    !function(p){"use strict";jQuery("body").vide({mp4:"{% static '/ICON/bg.mp4' %}",poster:"{% static '/ICON/bg-mobile-fallback.jpg' %}"},{posterType:"jpg"})}();　-->
-
     </script>
+    {% elif GoodsPic == 6 %}
+    <script>
+        !function(p){"use strict";jQuery("body").vide({jpg:"{% static '/ICON/Title06.jpg' %}",poster:"{% static '/ICON/Title06.jpg' %}"},{posterType:"jpg"})}();
+    </script>
+    {% elif GoodsPic == 7 %}
+    <script>
+        !function(p){"use strict";jQuery("body").vide({jpg:"{% static '/ICON/Title07.jpg' %}",poster:"{% static '/ICON/Title07.jpg' %}"},{posterType:"jpg"})}();
+    </script>
+    {% elif GoodsPic == 8 %}
+    <script>
+        !function(p){"use strict";jQuery("body").vide({jpg:"{% static '/ICON/Title08.jpg' %}",poster:"{% static '/ICON/Title08.jpg' %}"},{posterType:"jpg"})}();
+    </script>    
+    {% elif GoodsPic == 9 %}
+    <script>
+        !function(p){"use strict";jQuery("body").vide({jpg:"{% static '/ICON/Title09.jpg' %}",poster:"{% static '/ICON/Title09.jpg' %}"},{posterType:"jpg"})}();
+    </script>    
+    {% else %}
+    <script>
+        !function(p){"use strict";jQuery("body").vide({jpg:"{% static '/ICON/Title01.jpg' %}",poster:"{% static '/ICON/Title01.jpg' %}"},{posterType:"jpg"})}();
+    </script>
+    {% endif %}
 
   </body>
 </html>

@@ -89,7 +89,7 @@
                             {% for category in category_list %}
                             
                                 {% ifchanged category.Category_Group %}
-                                    {% if forloop.first  %}                                
+                                    {% if forloop.first  %}
                 		<li class="nav-item dropdown_multilayer_menu_third">
                                     {% else %}
                 		    </ul>
@@ -99,13 +99,34 @@
                 			<a class="nav-link" href="#">{{ category.Category_Group }}</a>
                 			<ul class="nav flex-column dropdown_multilayer_menu_third_sub">
                 				<li class="nav-item">
+                                    {% if category.Category_Name == 'ファミリーコンピュータカートンダンボール'  %}
+                				<a class="nav-link" href='/category/{{ category.Category_ID }}'>ファミリーコンピュータ</a>
+                                    {% elif category.Category_Name == 'ディスクシステムカートンダンボール'  %}
+                				<a class="nav-link" href='/category/{{ category.Category_ID }}'>ディスクシステム</a>
+                                    {% elif category.Category_Name == 'ゲームボーイカートンダンボール'  %}
+                				<a class="nav-link" href='/category/{{ category.Category_ID }}'>ゲームボーイ</a>
+                                    {% elif category.Category_Name == 'スーパーファミコンカートンダンボール'  %}
+                				<a class="nav-link" href='/category/{{ category.Category_ID }}'>スーパーファミコン</a>
+                                    {% else %}
                 				<a class="nav-link" href='/category/{{ category.Category_ID }}'>{{ category.Category_Name }}</a>
+                                    {% endif %}                                    
                     		    </li>
 
                                 {% else %}
                 				<li class="nav-item">
+                                    {% if category.Category_Name == 'ファミリーコンピュータカートンダンボール'  %}
+                				<a class="nav-link" href='/category/{{ category.Category_ID }}'>ファミリーコンピュータ</a>
+                                    {% elif category.Category_Name == 'ディスクシステムカートンダンボール'  %}
+                				<a class="nav-link" href='/category/{{ category.Category_ID }}'>ディスクシステム</a>
+                                    {% elif category.Category_Name == 'ゲームボーイカートンダンボール'  %}
+                				<a class="nav-link" href='/category/{{ category.Category_ID }}'>ゲームボーイ</a>
+                                    {% elif category.Category_Name == 'スーパーファミコンカートンダンボール'  %}
+                				<a class="nav-link" href='/category/{{ category.Category_ID }}'>スーパーファミコン</a>
+                                    {% else %}
                 				<a class="nav-link" href='/category/{{ category.Category_ID }}'>{{ category.Category_Name }}</a>
-                				</li>
+                                    {% endif %}                                    
+                    		    </li>
+
 
                                 {% endifchanged %}                		    
                             {% empty %}
@@ -133,13 +154,33 @@
                 			<a class="nav-link" href="#">{{ category.Category_Group }}</a>
                 			<ul class="nav flex-column dropdown_multilayer_menu_third_sub">
                 				<li class="nav-item">
+                                    {% if category.Category_Name == 'ファミリーコンピュータカートンダンボール'  %}
+                				<a class="nav-link" href='/category/{{ category.Category_ID }}'>ファミリーコンピュータ</a>
+                                    {% elif category.Category_Name == 'ディスクシステムカートンダンボール'  %}
+                				<a class="nav-link" href='/category/{{ category.Category_ID }}'>ディスクシステム</a>
+                                    {% elif category.Category_Name == 'ゲームボーイカートンダンボール'  %}
+                				<a class="nav-link" href='/category/{{ category.Category_ID }}'>ゲームボーイ</a>
+                                    {% elif category.Category_Name == 'スーパーファミコンカートンダンボール'  %}
+                				<a class="nav-link" href='/category/{{ category.Category_ID }}'>スーパーファミコン</a>
+                                    {% else %}
                 				<a class="nav-link" href='/category/{{ category.Category_ID }}'>{{ category.Category_Name }}</a>
+                                    {% endif %}                                    
                     		    </li>
 
                                 {% else %}
                 				<li class="nav-item">
+                                    {% if category.Category_Name == 'ファミリーコンピュータカートンダンボール'  %}
+                				<a class="nav-link" href='/category/{{ category.Category_ID }}'>ファミリーコンピュータ</a>
+                                    {% elif category.Category_Name == 'ディスクシステムカートンダンボール'  %}
+                				<a class="nav-link" href='/category/{{ category.Category_ID }}'>ディスクシステム</a>
+                                    {% elif category.Category_Name == 'ゲームボーイカートンダンボール'  %}
+                				<a class="nav-link" href='/category/{{ category.Category_ID }}'>ゲームボーイ</a>
+                                    {% elif category.Category_Name == 'スーパーファミコンカートンダンボール'  %}
+                				<a class="nav-link" href='/category/{{ category.Category_ID }}'>スーパーファミコン</a>
+                                    {% else %}
                 				<a class="nav-link" href='/category/{{ category.Category_ID }}'>{{ category.Category_Name }}</a>
-                				</li>
+                                    {% endif %}                                    
+                    		    </li>
 
                                 {% endifchanged %}                		    
                             {% empty %}
