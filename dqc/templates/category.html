@@ -1,6 +1,5 @@
 {% load static %}
-{% bootstrap_css %} # これを書かないとタグが適応されないよ( ;∀;)
-{% bootstrap_javascript jquery='full' %}
+{% load django_bootstrap5 %}
 
 <!DOCTYPE html>
 <html lang="ja" class="h-100" >
@@ -30,24 +29,6 @@
             height: 36px;
             width:  43px;
         }
-        .navbar-Line {
-            background: url({% static '/ICON/Line.png' %}) no-repeat bottom center;
-            background-size: contain;
-            height: 36px;
-            width:  43px;
-        }                    
-        .navbar-Facebook {
-            background: url({% static '/ICON/Facebook.png' %}) no-repeat bottom center;
-            background-size: contain;
-            height: 36px;
-            width:  43px;
-        }                    
-        .navbar-Instagram {
-            background: url({% static '/ICON/Instagram.png' %}) no-repeat bottom center;
-            background-size: contain;
-            height: 36px;
-            width:  43px;
-        }                            
     -->
     </style>      
 </head>

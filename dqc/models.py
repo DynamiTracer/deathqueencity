@@ -25,7 +25,7 @@ class Category(models.Model):
     Category_Key = models.CharField(max_length=250)
     Category_GroupID = models.CharField(max_length=250)
     def __str__(self):
-        return self.Name
+        return self.Category_Name
         
 class Soft(models.Model):
     Media = models.CharField(max_length=250)
@@ -86,7 +86,7 @@ class Item(models.Model):
     Alt8 = models.CharField(max_length=250)
 
     def __str__(self):
-        return Item.Comment
+        return self.Picpath1
 
 class Image(models.Model):
     Soft_Keyname = models.CharField(max_length=250)
