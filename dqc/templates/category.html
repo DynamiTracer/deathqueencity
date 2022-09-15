@@ -65,7 +65,7 @@
 
                                         <div class="carousel-inner">
                                             <div class="carousel-item active">
-                                                {% with picpath=item.ItemC|add:"/"|add:item.Picpath %}
+                                                {% if item.Category_Group %}
                     						    <div class="flex-item">
                             						<div class="image-wrap">
                                                     {% with picpath=item.ItemC|add:"/"|add:item.Picpath %}
@@ -83,8 +83,7 @@
 
 	                                                </div>
                                                 </div>
-
-                                                {% endwith %}  
+                                                {% endif %}  
                                             </div>
     
                         {% for image in image_list %}
