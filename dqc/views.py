@@ -11,7 +11,7 @@ class IndexView(ListView):
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
         context.update({
-            'category_list': Category.objects.all().order_by('id'),
+            'category_list': Category.objects.all().filter(Delete_Flg='0').order_by('id'),
         })
         context['FileName'] = 'Home'
         context['GoodsPic'] = random.randrange(9)
@@ -30,7 +30,7 @@ class SpecialView(ListView):
         context = super(SpecialView, self).get_context_data(**kwargs)
         pk = self.kwargs['pk']
         context.update({
-            'category_list': Category.objects.all().order_by('id'),
+            'category_list': Category.objects.all().filter(Delete_Flg='0').order_by('id'),
         })
         if pk == 1:        
             context['FileName'] = 'Special1'
@@ -377,7 +377,7 @@ class SoftView(ListView):
         params = {"SortID": pk}
 
         context.update({
-            'category_list': Category.objects.all().order_by('id'),
+            'category_list': Category.objects.all().filter(Delete_Flg='0').order_by('id'),
             'item_list': Item.objects.raw(sql, params),
             'image_list': Image.objects.raw(sql2, params),
         })
@@ -667,7 +667,7 @@ class CategoryView(ListView):
         params = {"CategoryID": pk}
 
         context.update({
-            'category_list': Category.objects.all().order_by('id'),
+            'category_list': Category.objects.all().filter(Delete_Flg='0').order_by('id'),
             'item_list': Item.objects.raw(sql, params),
             'image_list': Image.objects.raw(sql2, params),
         })
@@ -687,7 +687,7 @@ class HistoryView(ListView):
         context = super(HistoryView, self).get_context_data(**kwargs)
         context.update({
             'soft_list': Soft.objects.all().filter(Classification='1').order_by('id'),
-            'category_list': Category.objects.all().order_by('id'),
+            'category_list': Category.objects.all().filter(Delete_Flg='0').order_by('id'),
         })
         context['FileName'] = 'History'
         return context
@@ -704,7 +704,7 @@ class WantedView(ListView):
         context = super(WantedView, self).get_context_data(**kwargs)
         context.update({
             'soft_list': Soft.objects.all().filter(Classification='1').order_by('id'),
-            'category_list': Category.objects.all().order_by('id'),
+            'category_list': Category.objects.all().filter(Delete_Flg='0').order_by('id'),
         })
         context['FileName'] = 'Wanted'
         return context

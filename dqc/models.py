@@ -24,6 +24,7 @@ class Category(models.Model):
     Category_Group = models.CharField(max_length=250)
     Category_Key = models.CharField(max_length=250)
     Category_GroupID = models.CharField(max_length=250)
+    Delete_Flg = models.IntegerField(default=0)
     def __str__(self):
         return self.Category_Name
         
