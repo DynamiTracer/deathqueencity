@@ -1,0 +1,80 @@
+{% load static %}
+{% load django_bootstrap5 %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>DEATH QUEEN CITY</title>
+    <link rel="stylesheet" href="{% static 'css/_nav.css' %}">    
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="sticky-footer-navbar.css" rel="stylesheet">
+    <style type="text/css">
+    <!--  
+        main { 
+            padding-top: 35px; 
+            padding-bottom: 18px; 
+        }
+        .navbar-Twitter {
+            background: url({% static '/ICON/Twitter.png' %}) no-repeat bottom center;
+            background-size: contain;
+            height: 36px;
+            width:  43px;
+        }
+    -->
+    </style>    
+</head>
+
+<html lang="ja"  class="h-100" >
+
+  <body  class="d-flex flex-column h-100" >
+    <a id="skippy" class="sr-only sr-only-focusable" href="#content">
+      <div class="container">
+        <span class="skiplink-text">Death Queen City</span>
+      </div>
+    </a>
+
+    {% include "_nav.html" %} 
+    Provider = models.CharField(max_length=250)
+    SearchName = models.CharField(max_length=250)
+    InsertDate = models.DateTimeField(auto_now_add=True)
+
+    <main role="main" class="flex-shrink-0 me-4 ms-2">    
+        <table class="table p-5 m-2 table-striped table-bordered table table-sm table-Secondary" back-ground:"#FFFFFF">
+              <thead class="thead-dark" back-ground:"#FFFFFF" border="1">
+                <tr>
+                    <td colspan="3" bordercolor="#ff0000" back-ground:"#FFFFFF">
+                        <font size="2" color="#ffc107">
+                        市長queenモード！！
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <th style="width: 55%" class="fixed01"><font size="2">Provider</font></th>
+                    <th style="width: 30%" class="fixed01"><font size="2">SearchName</font></th>
+                    <th style="width: 15%" class="fixed01"><font size="2">InsertDate</font></th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for Search in object_list %}
+                <tr>
+                    <td><font size="2" color="#ffc107">{{ Search.Provider }}</font></td>
+                    <td><font size="2" color="#ffc107">{{ Search.SearchName }}</font></td>
+                    <td><font size="2" color="#ffc107">{{ Search.InsertDate }}</font></td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td><font size="2" color="#ffc107">Nothing</font></td>
+                    <td><font size="2" color="#ffc107">Nothing</font></td>
+                    <td><font size="2" color="#ffc107">Nothing</font></td>
+                </tr>
+                {% endfor %}
+              
+              </tbody>
+        </table>
+    </main>
+
+    {% include "_footer.html" %} 
+  </body>
+</html>

@@ -11,4 +11,5 @@ urlpatterns = [
     path('special/<int:pk>/', views.SpecialView.as_view(), name='specialdetail'),
     path('history/', views.HistoryView.as_view()),
     path('wanted/', views.WantedView.as_view()),
+    path('queen/', views.QueenView.as_view()),    
 ]

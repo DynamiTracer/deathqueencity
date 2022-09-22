@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView, ListView
-from .models import Soft, History, Wanted, Category, Item, Image
+from .models import Soft, History, Wanted, Category, Item, Image, SearchData
 import random
 
 class IndexView(ListView):
@@ -10,16 +10,40 @@ class IndexView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
+        SearchData(Provider=self.request._current_scheme_host, SearchName="Index").save()
+
         context.update({
             'category_list': Category.objects.all().filter(Delete_Flg='0').order_by('id'),
         })
+
         context['FileName'] = 'Home'
         context['GoodsPic'] = random.randrange(10)
+
         return context
 
     def get_queryset(self):
         return Soft.objects.all().filter(Classification='1').order_by('id')
 
+
+class QueenView(ListView):
+    template_name = 'queen.html'
+    context_object_name = 'soft_list'
+    model = SearchData
+
+    def get_context_data(self, **kwargs):
+        context = super(IndexView, self).get_context_data(**kwargs)
+
+        context.update({
+            'category_list': Category.objects.all().filter(Delete_Flg='0').order_by('id'),            
+            'searchdata_list': SearchData.objects.all()[:100].order_by('-id'),
+        })
+
+        context['FileName'] = 'Queen'
+
+        return context
+
+    def get_queryset(self):
+        return Soft.objects.all().filter(Classification='1').order_by('id')
 
 class SpecialView(ListView):
     template_name = 'special.html'
@@ -32,10 +56,14 @@ class SpecialView(ListView):
         context.update({
             'category_list': Category.objects.all().filter(Delete_Flg='0').order_by('id'),
         })
+
         if pk == 1:        
             context['FileName'] = 'Special1'
+            SearchData(Provider=self.request._current_scheme_host, SearchName="Special1").save()        
+
         elif pk == 2:
             context['FileName'] = 'Special2'
+            SearchData(Provider=self.request._current_scheme_host, SearchName="Special2").save()        
 
         return context
 
@@ -383,7 +411,10 @@ class SoftView(ListView):
         sql2 +=  'WHERE B.Soft_ID=%(SortID)s '
 
         params = {"SortID": pk}
-
+        
+        strSoft = Soft.objects.filter(Soft_ID=pk).values('Soft_Name_Short')
+        SearchData(Provider=self.request._current_scheme_host, SearchName=strSoft ).save()
+        
         context.update({
             'category_list': Category.objects.all().filter(Delete_Flg='0').order_by('id'),
             'item_list': Item.objects.raw(sql, params),
@@ -455,6 +486,9 @@ class CategoryView(ListView):
         sql2 +=  'order by B.Soft_ID'
 
         params = {"CategoryID": pk}
+        
+        strCategory = Category.objects.filter(Category_ID=pk).values('Category_Name')
+        SearchData(Provider=self.request._current_scheme_host, SearchName=strCategory ).save()
 
         context.update({
             'category_list': Category.objects.all().filter(Delete_Flg='0').order_by('id'),
@@ -475,6 +509,9 @@ class HistoryView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(HistoryView, self).get_context_data(**kwargs)
+
+        SearchData(Provider=self.request._current_scheme_host, SearchName="History").save()        
+
         context.update({
             'soft_list': Soft.objects.all().filter(Classification='1').order_by('id'),
             'category_list': Category.objects.all().filter(Delete_Flg='0').order_by('id'),
@@ -492,6 +529,9 @@ class WantedView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(WantedView, self).get_context_data(**kwargs)
+
+        SearchData(Provider=self.request._current_scheme_host, SearchName="Wanted").save()
+        
         context.update({
             'soft_list': Soft.objects.all().filter(Classification='1').order_by('id'),
             'category_list': Category.objects.all().filter(Delete_Flg='0').order_by('id'),

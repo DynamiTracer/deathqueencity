@@ -8,6 +8,14 @@ class History(models.Model):
     def __str__(self):
         return self.History_Date
 
+class SearchData(models.Model):
+    Provider = models.CharField(max_length=250)
+    SearchName = models.CharField(max_length=250)
+    InsertDate = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.History_Date
+
 class Wanted(models.Model):
     Genre = models.CharField(max_length=250)
     Soft_Title = models.CharField(max_length=250)
