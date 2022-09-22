@@ -14,7 +14,7 @@ class IndexView(ListView):
             'category_list': Category.objects.all().filter(Delete_Flg='0').order_by('id'),
         })
         context['FileName'] = 'Home'
-        context['GoodsPic'] = random.randrange(9)
+        context['GoodsPic'] = random.randrange(10)
         return context
 
     def get_queryset(self):
