@@ -1,5 +1,11 @@
 from django.db import models
 
+#class AccessCount(models.Model):
+#    AccessCount = models.IntegerField
+
+#    def __str__(self):
+#        return self.Accesscount
+        
 class History(models.Model):
     History_Date = models.CharField(max_length=250)
     History_Text = models.CharField(max_length=250)
@@ -14,7 +20,7 @@ class SearchData(models.Model):
     InsertDate = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.History_Date
+        return self.Provider
 
 class Wanted(models.Model):
     Genre = models.CharField(max_length=250)

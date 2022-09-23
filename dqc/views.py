@@ -12,6 +12,14 @@ class IndexView(ListView):
         context = super(IndexView, self).get_context_data(**kwargs)
         SearchData(Provider=self.request._current_scheme_host, SearchName="Index").save()
 
+#        q=AccessCount.objects.values(AccessCount)
+#        kaisuu=q.access_no+1
+#        q.access_no=kaisuu
+#        q.save()
+#        textCount = 'count : ' + str(kaisuu) 
+        
+#        context['AccessCount'] = textCount
+
         context.update({
             'category_list': Category.objects.all().filter(Delete_Flg='0').order_by('id'),
         })
@@ -24,18 +32,17 @@ class IndexView(ListView):
     def get_queryset(self):
         return Soft.objects.all().filter(Classification='1').order_by('id')
 
-
 class QueenView(ListView):
     template_name = 'queen.html'
     context_object_name = 'soft_list'
     model = SearchData
 
     def get_context_data(self, **kwargs):
-        context = super(IndexView, self).get_context_data(**kwargs)
+        context = super(QueenView, self).get_context_data(**kwargs)
 
         context.update({
             'category_list': Category.objects.all().filter(Delete_Flg='0').order_by('id'),            
-            'searchdata_list': SearchData.objects.all()[:100].order_by('-id'),
+            'searchdata_list': SearchData.objects.all().order_by('-id')[:1000],
         })
 
         context['FileName'] = 'Queen'
