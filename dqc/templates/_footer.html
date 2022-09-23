@@ -1,15 +1,22 @@
     <div id="footer" class="fixed-bottom text-warning" style="height:22px; background-color: #a61420;">
         <div class="container-fluid">
             <div class="row">            
-                <div class="col-4 text-left">        
-                    <p><font size="2"></font></p>
-                </div>  
+                <div class="col-4 text-left">
+                    <p><font size="2">Access Count : {{item_count}}</font></p>
+                </div>
                 <div class="col-4 d-flex align-items-center justify-content-center">
                     <p><font size="2"> 2001-2022 Created by 市長queen</font></p>
                 </div>  
-                <div class="col-4 text-right">        
-                    <p><font size="2">count : </font></p>
+            {% if FileName == "Soft" or FileName == "Category" %}
+                <div class="col-4 text-right">
+                    <p><font size="2">Goods Total Count : {{item_count}}</font></p>
                 </div>  
+            {% else %}
+                <div class="col-4 text-right">
+                    <p><font size="2"></font></p>                
+                </div>  
+            {% endif %}
+
             </div>  
         </div>  
     </div>

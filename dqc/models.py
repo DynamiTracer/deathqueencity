@@ -1,10 +1,11 @@
 from django.db import models
 
-#class AccessCount(models.Model):
-#    AccessCount = models.IntegerField
+class AccessCount(models.Model):
+    Delete_Flg = models.IntegerField(default=0)   
+    AccessCount = models.IntegerField(default=0) 
 
-#    def __str__(self):
-#        return self.Accesscount
+    def __str__(self):
+        return self.Accesscount
         
 class History(models.Model):
     History_Date = models.CharField(max_length=250)

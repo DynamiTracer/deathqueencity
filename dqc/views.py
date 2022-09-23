@@ -410,24 +410,53 @@ class SoftView(ListView):
         sql +=  'WHERE D.Soft_ID=%(SortID)s '
         sql +=  'ORDER BY D.Category_ID, D.Sort_No '
 
-        sql2 =  'SELECT * FROM dqc_image as A '
-        sql2 +=  'INNER JOIN dqc_soft as B '
-        sql2 +=  'on A.Soft_Keyname = B.Soft_Keyname '
-        sql2 +=  'LEFT JOIN dqc_category as C '
-        sql2 +=  'on A.Category_key = C.Category_Key '
-        sql2 +=  'WHERE B.Soft_ID=%(SortID)s '
+#        sql2 =  'SELECT * FROM dqc_image as A '
+#        sql2 +=  'INNER JOIN dqc_soft as B '
+#        sql2 +=  'on A.Soft_Keyname = B.Soft_Keyname '
+#        sql2 +=  'LEFT JOIN dqc_category as C '
+#        sql2 +=  'on A.Category_key = C.Category_Key '
+#        sql2 +=  'WHERE B.Soft_ID=%(SortID)s '
 
+        sql2 =  'select count(datacount) as datacount from ('
+        sql2 +=  'SELECT concat(Item_Classification, concat(Soft_KeyName1 , Picpath1)) as datacount, '
+        sql2 +=  'B.Soft_ID as Soft_ID FROM dqc_item as A INNER JOIN dqc_soft as B on A.Soft_Keyname1 = B.Soft_Keyname '
+        sql2 +=  'union '
+        sql2 +=  'SELECT concat(Item_Classification, concat(Soft_KeyName2 , Picpath2)) as datacount, '
+        sql2 +=  'B.Soft_ID as Soft_ID FROM dqc_item as A INNER JOIN dqc_soft as B on A.Soft_Keyname2 = B.Soft_Keyname '
+        sql2 +=  'union '
+        sql2 +=  'SELECT concat(Item_Classification, concat(Soft_KeyName3 , Picpath3)) as datacount, '
+        sql2 +=  'B.Soft_ID as Soft_ID FROM dqc_item as A INNER JOIN dqc_soft as B on A.Soft_Keyname3 = B.Soft_Keyname '
+        sql2 +=  'union '
+        sql2 +=  'SELECT concat(Item_Classification, concat(Soft_KeyName4 , Picpath4)) as datacount, '
+        sql2 +=  'B.Soft_ID as Soft_ID FROM dqc_item as A INNER JOIN dqc_soft as B on A.Soft_Keyname4 = B.Soft_Keyname '
+        sql2 +=  'union '
+        sql2 +=  'SELECT concat(Item_Classification, concat(Soft_KeyName5 , Picpath5)) as datacount, '
+        sql2 +=  'B.Soft_ID as Soft_ID FROM dqc_item as A INNER JOIN dqc_soft as B on A.Soft_Keyname5 = B.Soft_Keyname '
+        sql2 +=  'union '
+        sql2 +=  'SELECT concat(Item_Classification, concat(Soft_KeyName6 , Picpath6)) as datacount, '
+        sql2 +=  'B.Soft_ID as Soft_ID FROM dqc_item as A INNER JOIN dqc_soft as B on A.Soft_Keyname6 = B.Soft_Keyname '
+        sql2 +=  'union '
+        sql2 +=  'SELECT concat(Item_Classification, concat(Soft_KeyName7 , Picpath7)) as datacount, '
+        sql2 +=  'B.Soft_ID as Soft_ID FROM dqc_item as A INNER JOIN dqc_soft as B on A.Soft_Keyname7 = B.Soft_Keyname '
+        sql2 +=  'union '
+        sql2 +=  'SELECT concat(Item_Classification, concat(Soft_KeyName8 , Picpath8)) as datacount, '
+        sql2 +=  'B.Soft_ID as Soft_ID FROM dqc_item as A INNER JOIN dqc_soft as B on A.Soft_Keyname8 = B.Soft_Keyname '
+        sql2 +=  ') as C '        
+        sql2 +=  'WHERE C.Soft_ID=%(SortID)s '
+        
         params = {"SortID": pk}
         
         strSoft = Soft.objects.filter(Soft_ID=pk).values('Soft_Name_Short')
         SearchData(Provider=self.request._current_scheme_host, SearchName=strSoft ).save()
+
+        item_count = Item.objects.raw(sql2, params)
         
         context.update({
             'category_list': Category.objects.all().filter(Delete_Flg='0').order_by('id'),
             'item_list': Item.objects.raw(sql, params),
-            'image_list': Image.objects.raw(sql2, params),
         })
         context['FileName'] = 'Soft'
+        context['item_count'] = Item.objects.all().count()  
         return context
 
     def get_queryset(self):
@@ -504,6 +533,7 @@ class CategoryView(ListView):
         })
 
         context['FileName'] = 'Category'
+        context['item_count'] = Item.objects.all().count()          
         return context
 
     def get_queryset(self):
