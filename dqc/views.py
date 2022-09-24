@@ -1,16 +1,34 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.generic import TemplateView, ListView
 from .models import Soft, History, Wanted, Category, Item, Image, SearchData
+from django.views import View
 import random
+
+class MyView(View):
+    def get(self, request):
+        # 'HTTP_X_FORWARDED_FOR'ヘッダを参照して転送経路のIPアドレスを取得する。
+        forwarded_addresses = request.META.get('HTTP_X_FORWARDED_FOR')
+        if forwarded_addresses:
+            # 'HTTP_X_FORWARDED_FOR'ヘッダがある場合: 転送経路の先頭要素を取得する。
+            client_addr = forwarded_addresses.split(',')[0]
+        else:
+            # 'HTTP_X_FORWARDED_FOR'ヘッダがない場合: 直接接続なので'REMOTE_ADDR'ヘッダを参照する。
+            client_addr = request.META.get('REMOTE_ADDR')
+
+        # 動作確認のため、取得したアドレスをそのまま返す。
+        return HttpResponse(client_addr)
 
 class IndexView(ListView):
     template_name = 'index.html'
     context_object_name = 'soft_list'
     model = Soft
 
+    
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
-        SearchData(Provider=self.request._current_scheme_host, SearchName="Index").save()
+
+        SearchData(Provider=MyView.get(self.request), SearchName="Special1").save()
 
 #        q=AccessCount.objects.values(AccessCount)
 #        kaisuu=q.access_no+1
@@ -20,6 +38,8 @@ class IndexView(ListView):
         
 #        context['AccessCount'] = textCount
 
+
+
         context.update({
             'category_list': Category.objects.all().filter(Delete_Flg='0').order_by('id'),
         })
@@ -28,7 +48,7 @@ class IndexView(ListView):
         context['GoodsPic'] = random.randrange(10)
 
         return context
-
+        
     def get_queryset(self):
         return Soft.objects.all().filter(Classification='1').order_by('id')
 
