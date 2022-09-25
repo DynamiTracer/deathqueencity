@@ -28,7 +28,7 @@ class IndexView(ListView):
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
 
-        SearchData(Provider=MyView.get(self.request), SearchName="Special1").save()
+        SearchData(Provider=self.request._current_scheme_host, SearchName="index" ).save()
 
 #        q=AccessCount.objects.values(AccessCount)
 #        kaisuu=q.access_no+1
