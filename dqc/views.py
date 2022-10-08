@@ -604,6 +604,7 @@ class CategoryView(ListView):
         sql +=  'WHEN "付録 SFC" THEN "付録" '
         sql +=  'WHEN "攻略本 FC・FCD・GB" THEN "攻略本" '
         sql +=  'WHEN "攻略本 SFC" THEN "攻略本" '
+        sql +=  'WHEN "マリオＲＰＧ トップサンシール" THEN "トップサンシール" '        
         sql +=  'ELSE Category_Name '
         sql +=  'END Category_Name, '
         sql +=  'C1.Category_ID as Category_ID, '
