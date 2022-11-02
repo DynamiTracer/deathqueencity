@@ -37,7 +37,7 @@ styleName {
 }
 
 body {
-    background:linear-gradient(to left, #000000, 50%, #a61420);
+    background:linear-gradient(to left, #000000, #a61420 50%, #000000);
     color: #ffc107;
     height: auto;
 }   
